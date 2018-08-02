@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :product do
-    title "MyString"
+    name "MyString"
     description "MyText"
-    image_url "MyString"
+    image_url "Abies.gif"
     price "9.99"
   end
 end

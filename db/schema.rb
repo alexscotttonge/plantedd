@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2018_07_26_120510) do
   enable_extension "plpgsql"
 
   create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.string "image_url"
+    t.string "name" # migration for null: false needed
+    t.text "description" # migration for null: false needed
+    t.string "image_url" # migration for null: false needed
     t.decimal "price", precision: 7, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
