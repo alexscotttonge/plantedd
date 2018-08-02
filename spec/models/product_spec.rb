@@ -34,5 +34,7 @@ end
 RSpec.describe Product, "#save" do
   it "saves a product correctly" do
     product = create :product
+
+    expect(Product.count).to eq 1
   end
 end
