@@ -6,7 +6,7 @@ RSpec.describe ProductsController, type: :controller do
   # Product. As you add validations to Product, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { name: "Picea purperea", image_url: "picea_p.png", price: 200, description: "Purple cone spruce"}
   }
 
   let(:invalid_attributes) {
@@ -20,6 +20,7 @@ RSpec.describe ProductsController, type: :controller do
 
   describe "GET #index" do
     it "returns a success response" do
+      # line 24 could be product = create :product (and the rest)
       product = Product.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
