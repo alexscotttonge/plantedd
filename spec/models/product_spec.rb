@@ -11,14 +11,14 @@ end
 
 RSpec.describe Product, "attachments" do
   it "should reject incorrect file suffixes" do
-    ok = ["abies.gif"]
-    bad = ["abies.gf"]
+    ok_file_suffixes = ["abies.gif", "thuja.png", "JUNIPERUS.jpg"]
+    bad_file_suffixes = ["abies.gf", "thuja.pnng", "pinus.html"]
 
-    ok.each do |image_url|
+    ok_file_suffixes.each do |image_url|
       expect(new_product(image_url)).to be_valid
     end
 
-    bad.each do |image_url|
+    bad_file_suffixes.each do |image_url|
       expect(new_product(image_url)).to be_invalid
     end
   end
