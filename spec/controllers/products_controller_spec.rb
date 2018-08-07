@@ -6,11 +6,11 @@ RSpec.describe ProductsController, type: :controller do
   # Product. As you add validations to Product, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { name: "Picea purperea", image_url: "picea_p.png", price: 200, description: "Purple cone spruce"}
+    { name: "Picea purperea", image_url: "picea_p.png", price: 200, description: "Purple cone spruce" }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { name: "Picea purperea", image_url: "picea_p.kpmg", price: 200, description: "Purple cone spruce" }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -67,7 +67,7 @@ RSpec.describe ProductsController, type: :controller do
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
         post :create, params: {product: invalid_attributes}, session: valid_session
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
   end
@@ -75,14 +75,14 @@ RSpec.describe ProductsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { name: "Abies alba", image_url: "abies_a.png", price: 200, description: "Silver fir"}
       }
 
       it "updates the requested product" do
         product = Product.create! valid_attributes
         put :update, params: {id: product.to_param, product: new_attributes}, session: valid_session
         product.reload
-        skip("Add assertions for updated state")
+        expect(product.attributes["name"]).to eq new_attributes[:name]
       end
 
       it "redirects to the product" do
@@ -96,7 +96,7 @@ RSpec.describe ProductsController, type: :controller do
       it "returns a success response (i.e. to display the 'edit' template)" do
         product = Product.create! valid_attributes
         put :update, params: {id: product.to_param, product: invalid_attributes}, session: valid_session
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
   end
