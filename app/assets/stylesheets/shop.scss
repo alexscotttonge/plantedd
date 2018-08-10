@@ -23,10 +23,14 @@
       }
       img {
         float: left;
-        padding: 1em;
+        padding: 0.5em;
         margin-right: 1em;
         margin-bottom: 1em;
         box-shadow: 0.176em 0.176em 0.354em 0px rgba(0,0,0,0.75);
+        height: auto;
+        width: auto;
+        max-height: 100px;
+        max-width: 100px;
       }
       .price {
         font-size: 1.414em;
